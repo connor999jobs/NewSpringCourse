@@ -7,6 +7,8 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:property-placeholder location="classpath:musicPlayer.properties" />
+
 <!--    <bean id="musicBean1"-->
 <!--          class="com.example.newspringcourse.ioc.lesson1.models.ClassicalMusic">-->
 <!--    </bean>-->
@@ -28,8 +30,20 @@
 
     </bean>
 
-    <bean id="musicPlayer" class="com.example.newspringcourse.di.models.MusicPlayer">
-        <constructor-arg ref="musicBean" />
-    </bean>
+<!--    <bean id="musicPlayer" class="com.example.newspringcourse.di.models.MusicPlayer">-->
+<!--        <constructor-arg ref="musicBean" />-->
+<!--    </bean>-->
+<!--    6. Внедрение зависимостей. Dependency Injection (DI). Введение.-->
 
+    <bean id="musicPlayer" class="com.example.newspringcourse.di.models.MusicPlayer">
+       <property name="music" ref="musicBean" />
+
+        <property name ="name" value ="${musicPlayer.name}"/>
+        <property name ="volume" value ="${musicPlayer.volume}"/>
+
+    </bean>
+<!--    7. Внедрение зависимостей. Dependency Injection (DI). ЧЕРЕЗ SETTER Часть 2.-->
+
+
+    
 </beans>
