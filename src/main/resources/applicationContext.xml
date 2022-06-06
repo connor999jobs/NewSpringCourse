@@ -26,8 +26,13 @@
 
 
 
-    <bean id="musicBean" class="com.example.newspringcourse.di.models.ClassicalMusic">
+    <bean id="musicClassicBean" class="com.example.newspringcourse.di.models.ClassicalMusic">
+    </bean>
 
+    <bean id="musicRockBean" class="com.example.newspringcourse.di.models.RockMusic">
+    </bean>
+
+    <bean id="musicRemixBean" class="com.example.newspringcourse.di.models.RemixMusic">
     </bean>
 
 <!--    <bean id="musicPlayer" class="com.example.newspringcourse.di.models.MusicPlayer">-->
@@ -35,14 +40,28 @@
 <!--    </bean>-->
 <!--    6. Внедрение зависимостей. Dependency Injection (DI). Введение.-->
 
-    <bean id="musicPlayer" class="com.example.newspringcourse.di.models.MusicPlayer">
-       <property name="music" ref="musicBean" />
+<!--    <bean id="musicPlayer" class="com.example.newspringcourse.di.models.MusicPlayer">-->
+<!--       <property name="musicList" ref="musicClassicBean" />-->
 
-        <property name ="name" value ="${musicPlayer.name}"/>
-        <property name ="volume" value ="${musicPlayer.volume}"/>
+<!--        <property name ="name" value ="${musicPlayer.name}"/>-->
+<!--        <property name ="volume" value ="${musicPlayer.volume}"/>-->
 
-    </bean>
+<!--    </bean>-->
 <!--    7. Внедрение зависимостей. Dependency Injection (DI). ЧЕРЕЗ SETTER Часть 2.-->
+
+
+    <bean id="musicPlayer" class="com.example.newspringcourse.di.models.MusicPlayer">
+        <property name="musicList">
+            <list>
+                <ref bean="musicClassicBean"/>
+                <ref bean="musicRemixBean"/>
+                <ref bean="musicRockBean"/>
+            </list>
+        </property>
+        <property name="name" value="${musicPlayer.name}"/>
+        <property name="volume" value="${musicPlayer.volume}"/>
+    </bean>
+
 
 
     
