@@ -20,7 +20,7 @@ public class MusicPlayer {
 //    @Autowired
 //    public void setMusic(Music music) {
 //        this.music = music;
-//    }
+//    }/
 
 
     private ClassicalMusic classicalMusic;
