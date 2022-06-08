@@ -1,7 +1,10 @@
 package com.example.newspringcourse.annotations.models;
 
 import com.example.newspringcourse.annotations.interfaces.Music;
+import org.springframework.stereotype.Component;
 
+
+@Component("classicalMusic")
 public class ClassicalMusic implements Music {
     private ClassicalMusic() {
     }
