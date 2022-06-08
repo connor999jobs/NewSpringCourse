@@ -1,5 +1,6 @@
 package com.example.newspringcourse.di;
 
+import com.example.newspringcourse.di.models.ClassicalMusic;
 import com.example.newspringcourse.di.models.MusicPlayer;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -12,10 +13,13 @@ public class TestDI {
 //        System.out.println(musicPlayer.getName());
 //        System.out.println(musicPlayer.getVolume());
 
-        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-        System.out.println(musicPlayer.getName());
-        System.out.println(musicPlayer.getVolume());
-        musicPlayer.playMusic();
+//        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+//        System.out.println(musicPlayer.getName());
+//        System.out.println(musicPlayer.getVolume());
+//        musicPlayer.playMusic();
+
+        ClassicalMusic classicalMusic = context.getBean("musicBean", ClassicalMusic.class);
+        System.out.println(classicalMusic.getSong());
 
         context.close();
     }

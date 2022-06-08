@@ -1,6 +1,6 @@
-package com.example.newspringcourse.di.models;
+package com.example.newspringcourse.annotations.models;
 
-import com.example.newspringcourse.di.interfaces.Music;
+import com.example.newspringcourse.annotations.interfaces.Music;
 
 public class ClassicalMusic implements Music {
     private ClassicalMusic() {
