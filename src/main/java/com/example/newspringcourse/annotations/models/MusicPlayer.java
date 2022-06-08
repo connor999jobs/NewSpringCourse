@@ -2,6 +2,7 @@ package com.example.newspringcourse.annotations.models;
 
 import com.example.newspringcourse.annotations.interfaces.Music;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -10,35 +11,17 @@ import java.util.List;
 @Component("musicPlayer")
 public class MusicPlayer {
 //    @Autowired
-//    private Music music;
-//    private ClassicalMusic classicalMusic;
+//    @Qualifier("classicalMusic")
+    private Music music;
+    private Music music2;
 
-//    public MusicPlayer(Music music) {
-//        this.music = music;
-//    }
-//
-//    @Autowired
-//    public void setMusic(Music music) {
-//        this.music = music;
-//    }/
-
-
-    private ClassicalMusic classicalMusic;
-    private RemixMusic remixMusic;
-
-    @Autowired
-    public MusicPlayer(ClassicalMusic classicalMusic, RemixMusic remixMusic) {
-        this.classicalMusic = classicalMusic;
-        this.remixMusic = remixMusic;
+    public MusicPlayer(@Qualifier("classicalMusic") Music music, @Qualifier("remixMusic") Music music2) {
+        this.music = music;
+        this.music2 = music2;
     }
 
-//    public void playMusic() {
-//        System.out.println("Playing: " + classicalMusic.getSong());
-//        System.out.println("Playing: " + remixMusic.getSong());
-//
-//    }
-
-    public String playMusic() {
-        return "Play: " + classicalMusic.getSong();
+    public String playMusic(){
+        return "Play: " + music.getSong();
     }
+
 }
